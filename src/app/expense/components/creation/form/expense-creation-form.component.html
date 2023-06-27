@@ -1,0 +1,61 @@
+<div class="container">
+  <fieldset class="container">
+    <legend>New expense</legend>
+
+    <form [formGroup]="creationForm" (ngSubmit)="submitForm()">
+
+      <div class="input-container grid-container">
+        <div class="grid-item">
+          <fa-icon size="xl" [icon]="faCoins"></fa-icon>
+          <input
+            class="input-field number-input"
+            type="number"
+            placeholder="100"
+            name="amount"
+            formControlName="amount"
+          >
+        </div>
+        <div [ngSwitch]="creationForm.get('type').value" class="grid-item">
+          <div *ngSwitchCase="'trip'">
+            <fa-icon size="xl" [icon]="faMap"></fa-icon>
+            <input
+              class="input-field number-input"
+              type="number"
+              placeholder="1000"
+              name="distance"
+              formControlName="distance"
+            >km(s)
+          </div>
+          <div *ngSwitchCase="'restaurant'">
+            <fa-icon size="xl" [icon]="faPeopleGroup"></fa-icon>
+            <input
+              class="input-field number-input"
+              type="number"
+              placeholder="2"
+              name="guests"
+              formControlName="guests"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <input id="type_trip" type="radio" value="trip" name="type" formControlName="type">
+        <label for="type_trip">Trip</label>
+
+        <input id="type_restaurant" type="radio" value="restaurant" name="type" formControlName="type">
+        <label for="type_restaurant">Restaurant</label>
+      </div>
+      <div class="input-container">
+        <input
+          class="input-field"
+          type="date"
+          name="creationDate"
+          formControlName="creationDate"
+        >
+      </div>
+      <textarea class="commentary" formControlName="commentary"></textarea>
+      <button type="submit" [disabled]="!creationForm.valid">Submit</button>
+    </form>
+  </fieldset>
+</div>

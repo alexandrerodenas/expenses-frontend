@@ -1,0 +1,34 @@
+@import "./src/theme-variables.scss";
+
+
+button:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+button.active {
+  background-color:$main-green;
+  color: white;
+}
+
+.pagination button {
+  border: 1px solid $light-grey;
+  padding: 5px 10px;
+  font-size: 20px;
+
+}
+
+.pagination button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination button:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+button:disabled {
+  opacity: 0.4;
+  background-color: grey;
+}

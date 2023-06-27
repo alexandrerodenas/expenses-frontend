@@ -1,0 +1,43 @@
+<table id="expenses-table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th class="centered">
+      <fa-icon [icon]="faCoins"></fa-icon>
+    </th>
+    <th>Created at</th>
+    <th>Updated at</th>
+    <th>Commentary</th>
+    <th>Nature</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let expense of expenses"
+        id="expense-row-{{expense.getId()}}"
+        (click)="onExpenseClick.emit(expense.getId())"
+    >
+      <td class="small-size">{{ expense.getId() }}</td>
+      <td class="small-size centered">{{ expense.getAmount() }}</td>
+      <td>{{ expense.getCreationDate() | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
+      <td>{{ expense.getLastUpdate() | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
+      <td class="large-size">{{ expense.getCommentary() }}</td>
+      <td class="centered small-size">
+        <ng-container [ngSwitch]="expense.getType()">
+          <fa-icon *ngSwitchCase="'trip'" [icon]="faSuitcase"></fa-icon>
+          <fa-icon *ngSwitchCase="'restaurant'" [icon]="faUtensils"></fa-icon>
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="table-footer-container">
+  <app-pagination *ngIf="count"
+                  [count]="count"
+                  (onPaginationChange)="changePagination($event)"
+  ></app-pagination>
+
+  <app-create-expense-button
+    id="expense-creation-btn"
+    (click)="openCreationPage()"
+  ></app-create-expense-button>
+</div>

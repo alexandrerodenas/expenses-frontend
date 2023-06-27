@@ -1,0 +1,81 @@
+@import "./src/theme-variables";
+@import "./src/theme-mixins";
+
+$font-size: 20px;
+
+fieldset {
+  background-color: $lighter-grey;
+  margin-left: 100px;
+  font-size: $font-size;
+  width: 400px;
+  padding: 40px;
+  margin-top: 50px;
+}
+
+legend {
+  background-color: $main-green;
+  color: white;
+  padding: 5px 10px;
+}
+
+fa-icon {
+  margin-right: 10px;
+}
+
+input {
+  background-color: $lighter-grey;
+  border: none;
+  font-size: $font-size;
+}
+
+textarea {
+  background-color: $lighter-grey;
+}
+
+.number-input {
+  width: 50px;
+  text-align: center;
+}
+
+.number-input:focus-visible {
+  outline: none;
+  border-bottom: 2px solid $form-focus-color;
+}
+
+.input-container {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+input[type="radio"] ~ label {
+  margin-right: 30px;
+}
+
+button[type="submit"] {
+  @include classic-button;
+
+  &:disabled {
+    background-color: grey;
+    opacity: 0.5;
+  }
+}
+
+.commentary {
+  resize: none;
+  height: 50px;
+  width: 350px;
+  border: none;
+  padding: 15px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.grid {
+  background-color: #ddd;
+  padding: 20px;
+}

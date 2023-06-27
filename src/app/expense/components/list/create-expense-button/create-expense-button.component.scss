@@ -1,0 +1,8 @@
+@import "./src/theme-variables";
+@import "./src/theme-mixins";
+
+.button {
+  @include classic-button;
+}
+
+

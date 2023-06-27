@@ -1,0 +1,7 @@
+<app-expense-list
+  [expenses]="expenses"
+  [count]="count"
+  (onPaginationChange)="changePagination($event)"
+  (onExpenseClick)="navigateToEditionFor($event)"
+  (onCreationButtonClick)="navigateToCreationPage()">
+</app-expense-list>

@@ -1,0 +1,17 @@
+<div class="pagination">
+  <button
+    id="previous-page"
+    [disabled]="cannotNavigateToPreviousPage()"
+    (click)="goToPreviousPage()"
+  >&laquo;</button>
+  <button [id]="'page_' + pageNumber" *ngFor="let pageNumber of this.getPageIndexes()"
+     [class.active]="pagination.page === pageNumber"
+      (click)="changeToPage(pageNumber)">
+    {{pageNumber}}
+  </button>
+  <button
+    id="next-page"
+    [disabled]="cannotNavigateToNextPage()"
+    (click)="goToNextPage()"
+  >&raquo;</button>
+</div>

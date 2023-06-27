@@ -1,0 +1,5 @@
+<app-expense-edition-form
+  *ngIf="expenseToEdit | async; let expenseToEdit"
+  [expenseToEdit]="expenseToEdit"
+  (onFormSubmission)="editExpenseFrom($event).subscribe()"
+></app-expense-edition-form>
