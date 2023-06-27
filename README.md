@@ -1,5 +1,3 @@
-# Test front Lucca
-
 ## But de l'exercice
 
 En vous servant de l'api fournie, vous réaliserez une application de saisie des dépenses.
